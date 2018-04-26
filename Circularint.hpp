@@ -18,8 +18,6 @@ class CircularInt {
     void getInRange();
     void setCurHour(int hour);
     
-    friend ostream& operator<<(ostream& os, const CircularInt& circ);  
-    
     CircularInt& operator+= (int add);
     CircularInt& operator+= (CircularInt& circ);
     CircularInt& operator++ ();
@@ -32,7 +30,6 @@ class CircularInt {
     CircularInt operator-- (int);
     int operator- ();
     int operator- (CircularInt& circ);
-    // CircularInt& operator- (int baseHour, CircularInt& circ);
     
     CircularInt& operator*= (int mult);
     CircularInt& operator*= (CircularInt& circ);
@@ -49,6 +46,9 @@ class CircularInt {
     bool operator== (int a);
     
     int operator% (CircularInt& circ);
+    int operator% (int a);
+    CircularInt& operator%= (CircularInt& circ);
+    CircularInt& operator%= (int a);
     
     bool operator!= (CircularInt& circ);
     bool operator!= (int a);
@@ -73,21 +73,33 @@ class CircularInt {
     
     int operator& (CircularInt& circ);
     int operator& (int a);
+    CircularInt& operator&= (CircularInt& circ);
     CircularInt& operator&= (int a);
     
     int operator| (CircularInt& circ);
     int operator| (int a);
+    CircularInt& operator|= (CircularInt& circ);
+    CircularInt& operator|= (int a);
     
     int operator^ (CircularInt& circ);
     int operator^ (int a);
+    CircularInt& operator^= (CircularInt& circ);
+    CircularInt& operator^= (int a);
     
+    friend ostream& operator<<(ostream& os, const CircularInt& circ);  //CircularInt to cout
     int operator<< (CircularInt& circ);
     int operator<< (int shift);
+    CircularInt& operator<<= (CircularInt& circ);
+    CircularInt& operator<<= (int a);
+    
     int operator>> (CircularInt& circ);
     int operator>> (int shift);
+    CircularInt& operator>>= (CircularInt& circ);
+    CircularInt& operator>>= (int a);
 };
 
-CircularInt& operator- (int baseHour, CircularInt& circ);
-CircularInt& operator+ (int baseHour, CircularInt& circ);
-CircularInt& operator* (int baseHour, CircularInt& circ);
-CircularInt& operator/ (int baseHour, CircularInt& circ);
+CircularInt& operator- (int base, CircularInt& circ);
+CircularInt& operator+ (int base, CircularInt& circ);
+CircularInt& operator* (int base, CircularInt& circ);
+CircularInt& operator/ (int base, CircularInt& circ);
+int operator> (int base, CircularInt& circ);
