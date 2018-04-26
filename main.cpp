@@ -24,14 +24,14 @@ int main() {
 	
 	CircularInt hour2 {-6, 6, 1};
 	hour = 10;
-	hour = hour2; cout << hour << endl; // 7
+	hour = hour2; cout << hour << endl; // 1
 	hour = 16; cout << hour << endl; // 4
-	cout << hour + hour2 << endl; // 11
-	cout << hour - hour2 << endl; // 9
-	cout << hour * hour2 << endl; // 1
+	cout << hour + hour2 << endl; // 4 + 1 = 5
+	cout << hour - hour2 << endl; // 4 - 1 = 3
+	cout << hour * hour2 << endl; // 4 * 1 = 4
 	
 	try {
-		cout << hour / hour2;
+		cout << hour / hour2 << endl; // 4
 	} catch (const string& message) {
 		cout << message << endl;     // "There is no number x in {1,12} such that x*3=10"
 	}
@@ -39,12 +39,18 @@ int main() {
 	hour = 6;
 	
 	try {
-		hour /= 3;
+		hour /= 3; // 2
 	} catch (const string& message) {
 		cout << message << endl;     // "There is no number x in {1,12} such that x*3=10"
 	}
 	
 	cout << hour << endl;
+	
+	cout << (3 > hour) << endl;
+	
+	hour = 4;
+	hour2 = 13;
+	cout << (hour % 1) << endl;
 	
 	
 	
