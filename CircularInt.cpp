@@ -87,6 +87,15 @@ int CircularInt::operator+ (CircularInt& circ){
     return ans;
 }
 
+int CircularInt::operator+ (int a){
+    CircularInt temp {start, end, curHour};
+    int ans = curHour + a;
+    temp.setCurHour(ans);
+    temp.getInRange();
+    ans = temp.getCurHour();
+    return ans;
+}
+
 CircularInt& CircularInt::operator-= (int sub){ 
     curHour = curHour - sub;
     this->getInRange();
@@ -124,6 +133,15 @@ int CircularInt::operator- (){
 int CircularInt::operator- (CircularInt& circ){
     CircularInt temp {start, end, curHour};
     int ans = curHour - circ.getCurHour();
+    temp.setCurHour(ans);
+    temp.getInRange();
+    ans = temp.getCurHour();
+    return ans;
+}
+
+int CircularInt::operator- (int a){
+    CircularInt temp {start, end, curHour};
+    int ans = curHour - a;
     temp.setCurHour(ans);
     temp.getInRange();
     ans = temp.getCurHour();
