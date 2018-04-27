@@ -23,7 +23,6 @@ class CircularInt {
     CircularInt& operator++ ();
     CircularInt operator++ (int);
     int operator+ (CircularInt& circ);
-    int operator+ (int a);
     
     CircularInt& operator-= (int sub);
     CircularInt& operator-= (CircularInt& circ);
@@ -31,7 +30,6 @@ class CircularInt {
     CircularInt operator-- (int);
     int operator- ();
     int operator- (CircularInt& circ);
-    int operator- (int a);
     
     CircularInt& operator*= (int mult);
     CircularInt& operator*= (CircularInt& circ);
@@ -105,3 +103,8 @@ CircularInt& operator+ (int base, CircularInt& circ);
 CircularInt& operator* (int base, CircularInt& circ);
 CircularInt& operator/ (int base, CircularInt& circ);
 int operator> (int base, CircularInt& circ);
+int operator< (int base, CircularInt& circ);
+int operator>= (int base, CircularInt& circ);
+int operator<= (int base, CircularInt& circ);
+int operator== (int base, CircularInt& circ);
+int operator!= (int base, CircularInt& circ);
