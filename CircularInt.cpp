@@ -45,6 +45,18 @@ void CircularInt::setCurHour(int hour){
     curHour = hour;
 }
 
+
+ostream& operator<<(ostream& os, const CircularInt& circ) {  
+    os << circ.curHour << endl;
+    return os;  
+}
+
+istream& operator>>(istream& is, CircularInt& circ) {  
+    is >> circ.curHour;
+    circ.getInRange();
+    return is;  
+}
+
 CircularInt& CircularInt::operator+= (int add){ 
     curHour = curHour + add;
     this->getInRange();
@@ -430,17 +442,6 @@ CircularInt& CircularInt::operator>>= (CircularInt& circ){
 /////////////////////////////////////////////
 ////NEED TO ADD MORE FUNCTIONS LIKE THESE FOR OTHER OPERATORS:
 //////Ex: 1 + hour, 1 - hour, 1 * hour, 1 << hour ....
-
-ostream& operator<<(ostream& out, CircularInt& circ){  
-    out << circ.getCurHour() << endl;
-    return out;  
-}
-
-istream& operator>>(istream& input, CircularInt& circ){  
-    input >> circ.curHour;
-    circ.getInRange();
-    return input;  
-}
 
 CircularInt& operator- (int base, CircularInt& circ){ 
     int curHour = circ.getCurHour();
