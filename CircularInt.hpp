@@ -5,11 +5,9 @@ using namespace std;
 class CircularInt {
     
     int start, end;
-    // int curHour;
+    int curHour;
     
     public:
-    
-    int curHour;
     
     CircularInt(int start, int end);
     CircularInt(int start, int end, int curHour);
@@ -19,6 +17,9 @@ class CircularInt {
     int getCurHour();
     void getInRange();
     void setCurHour(int hour);
+    
+    friend ostream& operator<<(ostream& os, const CircularInt& circ);  //CircularInt to cout
+    friend istream& operator>>(istream& is, CircularInt& circ);  //CircularInt to cout
     
     CircularInt& operator+= (int add);
     CircularInt& operator+= (CircularInt& circ);
@@ -100,9 +101,6 @@ class CircularInt {
     CircularInt& operator>>= (CircularInt& circ);
     CircularInt& operator>>= (int a);
 };
-
-ostream& operator<<(ostream& out, CircularInt& circ);
-istream& operator>>(istream& input, CircularInt& circ);
 
 CircularInt& operator- (int base, CircularInt& circ);
 CircularInt& operator+ (int base, CircularInt& circ);
