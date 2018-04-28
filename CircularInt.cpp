@@ -47,7 +47,7 @@ void CircularInt::setCurHour(int hour){
 
 
 ostream& operator<<(ostream& os, const CircularInt& circ) {  
-    os << circ.curHour << endl;
+    os << circ.curHour;
     return os;  
 }
 
@@ -443,50 +443,50 @@ CircularInt& CircularInt::operator>>= (CircularInt& circ){
 ////NEED TO ADD MORE FUNCTIONS LIKE THESE FOR OTHER OPERATORS:
 //////Ex: 1 + hour, 1 - hour, 1 * hour, 1 << hour ....
 
-CircularInt& operator- (int base, CircularInt& circ){ 
-    int curHour = circ.getCurHour();
-    int end = circ.getEnd();
-    int ans = base - curHour;
-    circ.setCurHour(ans);
-    circ.getInRange();
-    return circ;
+int operator- (int base, CircularInt& circ){ 
+    CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
+    int ans = base - (circ.getCurHour());
+    temp.setCurHour(ans);
+    temp.getInRange();
+    ans = temp.getCurHour();
+    return ans;
 }
 
-CircularInt& operator+ (int base, CircularInt& circ){ 
-    int curHour = circ.getCurHour();
-    int end = circ.getEnd();
-    int ans = base + curHour;
-    circ.setCurHour(ans);
-    circ.getInRange();
-    return circ;
+int operator+ (int base, CircularInt& circ){ 
+    CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
+    int ans = base + (circ.getCurHour());
+    temp.setCurHour(ans);
+    temp.getInRange();
+    ans = temp.getCurHour();
+    return ans;
 }
 
-CircularInt& operator* (int base, CircularInt& circ){ 
-    int curHour = circ.getCurHour();
-    int end = circ.getEnd();
-    int ans = base * curHour;
-    circ.setCurHour(ans);
-    circ.getInRange();
-    return circ;
+int operator* (int base, CircularInt& circ){ 
+    CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
+    int ans = base * (circ.getCurHour());
+    temp.setCurHour(ans);
+    temp.getInRange();
+    ans = temp.getCurHour();
+    return ans;
 }
 
-CircularInt& operator/ (int base, CircularInt& circ){ 
-    int curHour = circ.getCurHour();
-    int end = circ.getEnd();
-    int ans = base / curHour;
-    circ.setCurHour(ans);
-    circ.getInRange();
-    return circ;
+int operator/ (int base, CircularInt& circ){ 
+    CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
+    int ans = base / (circ.getCurHour());
+    temp.setCurHour(ans);
+    temp.getInRange();
+    ans = temp.getCurHour();
+    return ans;
 }
 
-CircularInt& operator% (int base, CircularInt& circ){ 
-    int curHour = circ.getCurHour();
-    int end = circ.getEnd();
-    int ans = base % curHour;
-    circ.setCurHour(ans);
-    circ.getInRange();
-    return circ;
-} ///need to find way for modulo to work
+int operator% (int base, CircularInt& circ){ 
+    CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
+    int ans = base %(circ.getCurHour());
+    temp.setCurHour(ans);
+    temp.getInRange();
+    ans = temp.getCurHour();
+    return ans;
+} 
 
 bool operator> (int base, CircularInt& circ){ 
     CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
