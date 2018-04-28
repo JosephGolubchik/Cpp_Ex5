@@ -102,10 +102,10 @@ class CircularInt {
     CircularInt& operator>>= (int a);
 };
 
-CircularInt& operator- (int base, CircularInt& circ);
-CircularInt& operator+ (int base, CircularInt& circ);
-CircularInt& operator* (int base, CircularInt& circ);
-CircularInt& operator/ (int base, CircularInt& circ);
+int operator- (int base, CircularInt& circ);
+int operator+ (int base, CircularInt& circ);
+int operator* (int base, CircularInt& circ);
+int operator/ (int base, CircularInt& circ);
 bool operator> (int base, CircularInt& circ);
 bool operator< (int base, CircularInt& circ);
 bool operator>= (int base, CircularInt& circ);
