@@ -274,9 +274,7 @@ CircularInt& CircularInt::operator%= (CircularInt& circ){
 }
 
 bool CircularInt::operator!= (CircularInt& circ){
-    if(start==circ.getStart() && end==circ.getEnd() && curHour==circ.getCurHour())
-		return false;
-	return true;
+    return ( ( curHour != circ.getCurHour() ) || ( start == circ.getStart() ) || ( end == circ.getEnd() ) );
 }
 
 bool CircularInt::operator!= (double a){
@@ -505,37 +503,25 @@ int operator% (int base, CircularInt& circ){
 } 
 
 bool operator> (double base, CircularInt& circ){ 
-    CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
-    bool ans = getToRange(base, circ) > circ.getCurHour();
-    return ans;
+    return getToRange(base, circ) > circ.getCurHour();
 }
 
 bool operator< (double base, CircularInt& circ){ 
-    CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
-    bool ans = getToRange(base, circ) < circ.getCurHour();
-    return ans;
+    return getToRange(base, circ) < circ.getCurHour();
 }
 
 bool operator>= (double base, CircularInt& circ){ 
-    CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
-    bool ans = getToRange(base, circ) >= circ.getCurHour();
-    return ans;
+    return getToRange(base, circ) >= circ.getCurHour();
 }
 
 bool operator<= (double base, CircularInt& circ){ 
-    CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
-    bool ans = getToRange(base, circ) >= circ.getCurHour();
-    return ans;
+    return getToRange(base, circ) <= circ.getCurHour();
 }
 
 bool operator== (double base, CircularInt& circ){ 
-    CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
-    bool ans = getToRange(base, circ) == circ.getCurHour();
-    return ans;
+    return getToRange(base, circ) == circ.getCurHour();
 }
 
 bool operator!= (double base, CircularInt& circ){ 
-    CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
-    bool ans = getToRange(base, circ) != circ.getCurHour();
-    return ans;
+    return getToRange(base, circ) != circ.getCurHour();
 }
