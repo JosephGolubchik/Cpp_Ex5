@@ -274,7 +274,7 @@ CircularInt& CircularInt::operator%= (CircularInt& circ){
 }
 
 bool CircularInt::operator!= (CircularInt& circ){
-    if(start==c2.circ.getStart() && end==c2.circ.getEnd() && curHour==c2.circ.getCurHour())
+    if(start==circ.getStart() && end==circ.getEnd() && curHour==circ.getCurHour())
 		return false;
 	return true;
 }
