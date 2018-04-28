@@ -57,7 +57,7 @@ istream& operator>>(istream& is, CircularInt& circ) {
     return is;  
 }
 
-CircularInt& CircularInt::operator+= (int add){ 
+CircularInt& CircularInt::operator+= (double add){ 
     curHour = curHour + add;
     this->getInRange();
     return *this;
@@ -82,7 +82,7 @@ CircularInt CircularInt::operator++ (int){
     return temp;
 }
 
-int CircularInt::operator+ (CircularInt& circ){
+double CircularInt::operator+ (CircularInt& circ){
     CircularInt temp {start, end, curHour};
     int ans = curHour + circ.getCurHour();
     temp.setCurHour(ans);
@@ -91,7 +91,7 @@ int CircularInt::operator+ (CircularInt& circ){
     return ans;
 }
 
-int CircularInt::operator+ (int a){
+double CircularInt::operator+ (double a){
     CircularInt temp {start, end, curHour};
     int ans = curHour + a;
     temp.setCurHour(ans);
@@ -100,7 +100,7 @@ int CircularInt::operator+ (int a){
     return ans;
 }
 
-CircularInt& CircularInt::operator-= (int sub){ 
+CircularInt& CircularInt::operator-= (double sub){ 
     curHour = curHour - sub;
     this->getInRange();
     return *this;
@@ -125,7 +125,7 @@ CircularInt CircularInt::operator-- (int){
     return temp;
 }
 
-int CircularInt::operator- (){
+double CircularInt::operator- (){
     CircularInt temp {start, end, curHour};
     int ans = -curHour;
     temp.setCurHour(ans);
@@ -134,7 +134,7 @@ int CircularInt::operator- (){
     return ans;
 }
 
-int CircularInt::operator- (CircularInt& circ){
+double CircularInt::operator- (CircularInt& circ){
     CircularInt temp {start, end, curHour};
     int ans = curHour - circ.getCurHour();
     temp.setCurHour(ans);
@@ -143,7 +143,7 @@ int CircularInt::operator- (CircularInt& circ){
     return ans;
 }
 
-int CircularInt::operator- (int a){
+double CircularInt::operator- (double a){
     CircularInt temp {start, end, curHour};
     int ans = curHour - a;
     temp.setCurHour(ans);
@@ -152,7 +152,7 @@ int CircularInt::operator- (int a){
     return ans;
 }
 
-CircularInt& CircularInt::operator*= (int mult){ 
+CircularInt& CircularInt::operator*= (double mult){ 
     curHour = curHour * mult;
     this->getInRange();
     return *this;
@@ -164,7 +164,7 @@ CircularInt& CircularInt::operator*= (CircularInt& circ){
     return *this;
 }
 
-int CircularInt::operator* (int mult){
+double CircularInt::operator* (double mult){
     CircularInt temp {start, end, curHour};
     int ans = curHour * mult;
     temp.setCurHour(ans);
@@ -173,7 +173,7 @@ int CircularInt::operator* (int mult){
     return ans;
 }
 
-int CircularInt::operator* (CircularInt& circ){
+double CircularInt::operator* (CircularInt& circ){
     CircularInt temp {start, end, curHour};
     int ans = curHour * circ.getCurHour();
     temp.setCurHour(ans);
@@ -195,7 +195,7 @@ CircularInt& CircularInt::operator/= (int divi){
     }
 }
 
-int CircularInt::operator/ (CircularInt& circ){
+double CircularInt::operator/ (CircularInt& circ){
     
     if(curHour % circ.getCurHour() != 0){
         string message = "There is no number x in {" + to_string(start) + "," 
@@ -212,7 +212,7 @@ int CircularInt::operator/ (CircularInt& circ){
     }
 }
 
-int CircularInt::operator/ (int divi){ 
+double CircularInt::operator/ (int divi){ 
     if(curHour % divi != 0){
         string message = "There is no number x in {" + to_string(start) + "," 
                        + to_string(end) +"} such that x*" + to_string(divi) + "=" + to_string(curHour);
@@ -234,7 +234,7 @@ CircularInt& CircularInt::operator= (CircularInt& circ){
     return *this;
 }
 
-CircularInt& CircularInt::operator= (int hour){
+CircularInt& CircularInt::operator= (double hour){
     curHour = hour;
     this->getInRange();
     return *this;
@@ -244,11 +244,11 @@ bool CircularInt::operator== (CircularInt& circ){
     return curHour == circ.getCurHour();
 }
 
-bool CircularInt::operator== (int a){
+bool CircularInt::operator== (double a){
     return curHour == a;
 }
 
-int CircularInt::operator% (CircularInt& circ){
+double CircularInt::operator% (CircularInt& circ){
     CircularInt temp {start, end, curHour};
     int ans = (curHour) % (circ.getCurHour());
     temp.setCurHour(ans);
@@ -257,7 +257,7 @@ int CircularInt::operator% (CircularInt& circ){
     return ans;
 }
 
-int CircularInt::operator% (int a){
+double CircularInt::operator% (int a){
     return curHour % a;
 }
 
@@ -277,7 +277,7 @@ bool CircularInt::operator!= (CircularInt& circ){
     return curHour != circ.getCurHour();
 }
 
-bool CircularInt::operator!= (int a){
+bool CircularInt::operator!= (double a){
     return curHour != a;
 }
 
@@ -289,7 +289,7 @@ bool CircularInt::operator> (CircularInt& circ){
     return curHour > circ.getCurHour();
 }
 
-bool CircularInt::operator> (int a){
+bool CircularInt::operator> (double a){
     return curHour > a;
 }
 
@@ -297,7 +297,7 @@ bool CircularInt::operator>= (CircularInt& circ){
     return curHour >= circ.getCurHour();
 }
 
-bool CircularInt::operator>= (int a){
+bool CircularInt::operator>= (double a){
     return curHour >= a;
 }
 
@@ -305,7 +305,7 @@ bool CircularInt::operator< (CircularInt& circ){
     return curHour < circ.getCurHour();
 }
 
-bool CircularInt::operator< (int a){
+bool CircularInt::operator< (double a){
     return curHour < a;
 }
 
@@ -313,7 +313,7 @@ bool CircularInt::operator<= (CircularInt& circ){
     return curHour <= circ.getCurHour();
 }
 
-bool CircularInt::operator<= (int a){
+bool CircularInt::operator<= (double a){
     return curHour <= a;
 }
 
@@ -321,7 +321,7 @@ bool CircularInt::operator&& (CircularInt& circ){
     return curHour && circ.getCurHour();
 }
 
-bool CircularInt::operator&& (int a){
+bool CircularInt::operator&& (double a){
     return curHour && a;
 }
 
@@ -329,7 +329,7 @@ bool CircularInt::operator|| (CircularInt& circ){
     return curHour || circ.getCurHour();
 }
 
-bool CircularInt::operator|| (int a){
+bool CircularInt::operator|| (double a){
     return curHour || a;
 }
 
@@ -443,7 +443,7 @@ CircularInt& CircularInt::operator>>= (CircularInt& circ){
 ////NEED TO ADD MORE FUNCTIONS LIKE THESE FOR OTHER OPERATORS:
 //////Ex: 1 + hour, 1 - hour, 1 * hour, 1 << hour ....
 
-int operator- (int base, CircularInt& circ){ 
+double operator- (double base, CircularInt& circ){ 
     CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
     int ans = base - (circ.getCurHour());
     temp.setCurHour(ans);
@@ -452,7 +452,7 @@ int operator- (int base, CircularInt& circ){
     return ans;
 }
 
-int operator+ (int base, CircularInt& circ){ 
+double operator+ (double base, CircularInt& circ){ 
     CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
     int ans = base + (circ.getCurHour());
     temp.setCurHour(ans);
@@ -461,7 +461,7 @@ int operator+ (int base, CircularInt& circ){
     return ans;
 }
 
-int operator* (int base, CircularInt& circ){ 
+double operator* (double base, CircularInt& circ){ 
     CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
     int ans = base * (circ.getCurHour());
     temp.setCurHour(ans);
@@ -488,37 +488,37 @@ int operator% (int base, CircularInt& circ){
     return ans;
 } 
 
-bool operator> (int base, CircularInt& circ){ 
+bool operator> (double base, CircularInt& circ){ 
     CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
     bool ans = base > circ.getCurHour();
     return ans;
 }
 
-bool operator< (int base, CircularInt& circ){ 
+bool operator< (double base, CircularInt& circ){ 
     CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
     bool ans = base < circ.getCurHour();
     return ans;
 }
 
-bool operator>= (int base, CircularInt& circ){ 
+bool operator>= (double base, CircularInt& circ){ 
     CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
     bool ans = base >= circ.getCurHour();
     return ans;
 }
 
-bool operator<= (int base, CircularInt& circ){ 
+bool operator<= (double base, CircularInt& circ){ 
     CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
     bool ans = base >= circ.getCurHour();
     return ans;
 }
 
-bool operator== (int base, CircularInt& circ){ 
+bool operator== (double base, CircularInt& circ){ 
     CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
     bool ans = base == circ.getCurHour();
     return ans;
 }
 
-bool operator!= (int base, CircularInt& circ){ 
+bool operator!= (double base, CircularInt& circ){ 
     CircularInt temp {circ.getStart(), circ.getEnd(), circ.getCurHour()};
     bool ans = base != circ.getCurHour();
     return ans;
