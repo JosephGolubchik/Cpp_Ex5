@@ -102,6 +102,8 @@ class CircularInt {
     CircularInt& operator>>= (int a);
 };
 
+int getToRange(double a, CircularInt& circ);
+
 double operator- (double base, CircularInt& circ);
 double operator+ (double base, CircularInt& circ);
 double operator* (double base, CircularInt& circ);
