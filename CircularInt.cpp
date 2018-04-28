@@ -241,7 +241,7 @@ CircularInt& CircularInt::operator= (double hour){
 }
 
 bool CircularInt::operator== (CircularInt& circ){
-    return curHour == circ.getCurHour();
+    return ( ( curHour == circ.getCurHour() ) && ( start == circ.getStart() ) && ( end == circ.getEnd() ) );
 }
 
 bool CircularInt::operator== (double a){
@@ -274,7 +274,7 @@ CircularInt& CircularInt::operator%= (CircularInt& circ){
 }
 
 bool CircularInt::operator!= (CircularInt& circ){
-    return curHour != circ.getCurHour();
+    return ( ( curHour != circ.getCurHour() ) || ( start == circ.getStart() ) || ( end == circ.getEnd() ) );
 }
 
 bool CircularInt::operator!= (double a){
